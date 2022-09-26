@@ -61,7 +61,6 @@ export const useUsersStore = defineStore({
             this.users = { loading: true };
             try {
                 this.users = await fetchWrapper.get(`${baseUrl}/${param}`);
-                console.log("searchedUsers", this.users);    
             } catch (error) {
                 this.users = { error };
             }

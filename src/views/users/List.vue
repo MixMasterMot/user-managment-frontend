@@ -20,7 +20,7 @@ async function onSubmit(values) {
         <Form @submit="onSubmit">
             <div class="form-row">
                 <div class="form-group col">
-                    <label>Search</label>
+                    <label>Enter to search</label>
                     <Field name="search" type="text" class="form-control" />
                 </div>
             </div>
@@ -32,7 +32,7 @@ async function onSubmit(values) {
                     <th style="width: 30%">Full Name</th>
                     <th style="width: 30%">Email</th>
                     <th style="width: 30%">Username</th>
-                    <th style="width: 10%"></th>
+                    <th v-if="storeToRefs(authStore).user.userRole == 0 || storeToRefs(authStore).user.userRole == 1" style="width: 10%"></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@ async function onSubmit(values) {
                         <td>{{ user.fullName }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.userName }}</td>
-                        <td style="white-space: nowrap">
+                        <td v-if="storeToRefs(authStore).user.userRole == 0 || storeToRefs(authStore).user.userRole == 1" style="white-space: nowrap">
                             <router-link :to="`/users/edit/${user.id}`" class="btn btn-sm btn-primary mr-1">Edit
                             </router-link>
                             <button @click="usersStore.delete(user.id)" class="btn btn-sm btn-danger btn-delete-user"

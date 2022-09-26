@@ -59,8 +59,8 @@ async function onSubmit(values) {
     
 <template>
     <h1>{{title}}</h1>
+    <p1 v-if="user">Note the username needs too be modified for this to work</p1>
     <template v-if="!(user?.loading || user?.error)">
-        <!-- <Form @submit="onSubmit" :validation-schema="schema" :initial-values="user" v-slot="{ errors, isSubmitting }"> -->
         <Form @submit="onSubmit" :initial-values="user" v-slot="{ errors, isSubmitting }">
             <div class="form-row">
                 <div class="form-group col">

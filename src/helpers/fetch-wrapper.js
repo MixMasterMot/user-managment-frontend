@@ -15,7 +15,6 @@ function request(method) {
         };
         if (body) {
             requestOptions.headers['Content-Type'] = 'application/json';
-            console.log("body",JSON.stringify(body))
             requestOptions.body = JSON.stringify(body);
         }
         return fetch(url, requestOptions).then(handleResponse);
